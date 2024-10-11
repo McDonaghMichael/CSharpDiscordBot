@@ -47,7 +47,7 @@ class Program
     {
         Console.WriteLine($"{_client.CurrentUser} is connected!");
         
-        commandManager = new CommandManager();
+        commandManager = new CommandManager(_client);
 
         return Task.CompletedTask;
     }
@@ -56,17 +56,6 @@ class Program
     {
         if (message.Author.Id == _client.CurrentUser.Id)
             return;
-
-        
-        foreach (var cmd in CommandManager.GetCommands())
-        {
-            if (message.Content == cmd.GetName())
-            {
-                cmd.Execute(message);
-                Console.WriteLine(cmd.GetName());
-            }
-            
-        }
     }
     
     private static async Task InteractionCreatedAsync(SocketInteraction interaction)

@@ -10,10 +10,9 @@ public class TestCommand : CommandBase, CustomCommand
         
     }
     
-    public async void Execute(SocketMessage message)
+    public async Task Execute(SocketSlashCommand command)
     {
-        
-        await message.Channel.SendMessageAsync(GetUsage());
-        
+        // Respond to the slash command
+        await command.RespondAsync(GetUsage());
     }
 }

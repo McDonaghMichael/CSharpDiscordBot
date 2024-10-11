@@ -4,7 +4,8 @@ namespace Bot.commands
 {
     public interface CustomCommand
     {
-        void Execute(SocketMessage message);
+        
+        Task Execute(SocketSlashCommand command); 
         String GetName();
 
         String GetUsage();
