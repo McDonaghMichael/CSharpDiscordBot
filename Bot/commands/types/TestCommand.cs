@@ -12,7 +12,6 @@ public class TestCommand : CommandBase, CustomCommand
     
     public async Task Execute(SocketSlashCommand command)
     {
-        // Respond to the slash command
         await command.RespondAsync(GetUsage());
     }
 }

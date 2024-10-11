@@ -31,6 +31,7 @@ namespace Bot
         
         {
             client.SlashCommandExecuted += SlashCommandHandler;
+            
             commands[0] = new HelpCommand("help", "!help <commands>");
             commands[1] = new TestCommand("test", "!test");
 
