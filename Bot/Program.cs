@@ -27,6 +27,8 @@ class Program
         _client.Ready += ReadyAsync;
         _client.MessageReceived += MessageReceivedAsync;
         _client.InteractionCreated += InteractionCreatedAsync;
+        
+        await _client.SetCustomStatusAsync("Let's get it on");
 
         Console.WriteLine(Env.GetString("TOKEN"));
         await _client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("TOKEN"));
@@ -49,6 +51,7 @@ class Program
         
         commandManager = new CommandManager(_client);
 
+        
         return Task.CompletedTask;
     }
     

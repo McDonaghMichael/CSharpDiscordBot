@@ -1,4 +1,5 @@
-﻿using Discord.WebSocket;
+﻿using Discord;
+using Discord.WebSocket;
 
 namespace Bot.commands
 {
@@ -9,5 +10,7 @@ namespace Bot.commands
         String GetName();
 
         String GetUsage();
+        
+        Dictionary<String, ApplicationCommandOptionType> GetOptions();
     }
 }

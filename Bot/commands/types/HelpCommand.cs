@@ -6,9 +6,8 @@ namespace Bot.commands.types;
 public class HelpCommand : CommandBase, CustomCommand
 {
 
-    public HelpCommand(String cmd, String usage) : base(cmd, usage)
+    public HelpCommand(String cmd, String usage, Dictionary<String, ApplicationCommandOptionType> options) : base(cmd, usage, options)
     {
-        
     }
     
     public async Task Execute(SocketSlashCommand command)

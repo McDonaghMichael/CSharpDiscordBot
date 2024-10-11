@@ -1,11 +1,12 @@
-﻿using Discord.WebSocket;
+﻿using Discord;
+using Discord.WebSocket;
 
 namespace Bot.commands.types;
 
 public class TestCommand : CommandBase, CustomCommand
 {
 
-    public TestCommand(String cmd, String usage) : base(cmd, usage)
+    public TestCommand(String cmd, String usage, Dictionary<String, ApplicationCommandOptionType> options) : base(cmd, usage, options)
     {
         
     }

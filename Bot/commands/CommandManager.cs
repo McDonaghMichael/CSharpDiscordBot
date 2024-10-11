@@ -30,10 +30,18 @@ namespace Bot
         public CommandManager(DiscordSocketClient client)
         
         {
+            
             client.SlashCommandExecuted += SlashCommandHandler;
             
-            commands[0] = new HelpCommand("help", "!help <commands>");
-            commands[1] = new TestCommand("test", "!test");
+            var helpOptions = new Dictionary<String, ApplicationCommandOptionType>();
+            helpOptions.Add("user", ApplicationCommandOptionType.User);
+            commands[0] = new HelpCommand("help", "!help <commands>", helpOptions);
+            
+            var insultOptions = new Dictionary<String, ApplicationCommandOptionType>();
+            insultOptions.Add("user", ApplicationCommandOptionType.User);
+            commands[1] = new InsultCommand("insult", "!insult <user>", insultOptions);
+            
+            //commands[1] = new TestCommand("test", "!test", options);
 
             for (int i = 0; i < commands.Length; i++)
             {
@@ -41,6 +49,10 @@ namespace Bot
                 var guildCommand = new SlashCommandBuilder();
                 guildCommand.WithName(commands[i].GetName());
                 guildCommand.WithDescription(commands[i].GetUsage());
+                foreach (var optionType in commands[i].GetOptions())
+                {
+                    guildCommand.AddOption(optionType.Key, optionType.Value, "Description of the option");
+                }
             
                 try
                 { 
