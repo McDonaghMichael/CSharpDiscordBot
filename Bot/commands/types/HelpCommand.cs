@@ -13,7 +13,7 @@ public class HelpCommand : CommandBase, CustomCommand
     public async void Execute(SocketMessage message)
     {
         
-        await message.Channel.SendMessageAsync("Usage: !help <message>");
+        await message.Channel.SendMessageAsync(GetUsage());
         
     }
 }

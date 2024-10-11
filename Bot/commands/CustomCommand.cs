@@ -6,5 +6,7 @@ namespace Bot.commands
     {
         void Execute(SocketMessage message);
         String GetName();
+
+        String GetUsage();
     }
 }
