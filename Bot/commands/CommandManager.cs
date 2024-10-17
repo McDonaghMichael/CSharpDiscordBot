@@ -40,8 +40,6 @@ namespace Bot
             var insultOptions = new Dictionary<String, ApplicationCommandOptionType>();
             insultOptions.Add("user", ApplicationCommandOptionType.User);
             commands[1] = new InsultCommand("insult", "!insult <user>", insultOptions);
-            
-            //commands[1] = new TestCommand("test", "!test", options);
 
             for (int i = 0; i < commands.Length; i++)
             {

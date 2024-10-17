@@ -26,7 +26,6 @@ class Program
         _client.Log += LogAsync;
         _client.Ready += ReadyAsync;
         _client.MessageReceived += MessageReceivedAsync;
-        _client.InteractionCreated += InteractionCreatedAsync;
         
         await _client.SetCustomStatusAsync("Let's get it on");
 
@@ -59,19 +58,5 @@ class Program
     {
         if (message.Author.Id == _client.CurrentUser.Id)
             return;
-    }
-    
-    private static async Task InteractionCreatedAsync(SocketInteraction interaction)
-    {
-        
-        if (interaction is SocketMessageComponent component)
-        {
-          
-            if (component.Data.CustomId == "unique-id")
-                await interaction.RespondAsync("Thank you for clicking my button!");
-
-            else
-                Console.WriteLine("An ID has been received that has no handler!");
-        }
     }
 }
